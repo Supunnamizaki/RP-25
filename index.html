@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy-Efficient Dual Hydroponic System | SLIIT Research 25-26J-035</title>
+  <meta name="description" content="An intelligent, energy-efficient dual hydroponic system for Capsicum Chili farming using IoT, Fuzzy Logic, and resilient communication. SLIIT Final Year Project 25-26J-035.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon"><img src="images/logo.png" alt="CeylonHydro" width="36" height="36"></span> CeylonHydro
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#domain">Domain</a></li>
+      <li><a href="#milestones">Milestones</a></li>
+      <li><a href="#documents">Documents</a></li>
+      <li><a href="#presentations">Presentations</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#domain">Domain</a>
+  <a href="#milestones">Milestones</a>
+  <a href="#documents">Documents</a>
+  <a href="#presentations">Presentations</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ==================== GLOBAL FLOATING PARTICLES ==================== -->
+<div class="global-particles" aria-hidden="true">
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid"></div>
+  <!-- Left decorative art — botanical plant with roots & leaves -->
+  <div class="hero-deco hero-deco-left" aria-hidden="true">
+    <svg width="180" height="520" viewBox="0 0 180 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main stem -->
+      <path d="M90 510 L90 80" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+      
+      <!-- Roots at bottom -->
+      <path d="M90 510 Q60 490 50 460" stroke="currentColor" stroke-width="1.2" opacity="0.2"/>
+      <path d="M90 510 Q120 490 130 465" stroke="currentColor" stroke-width="1.2" opacity="0.2"/>
+      <path d="M90 500 Q45 495 35 480" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+      <path d="M90 500 Q135 495 142 478" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+      
+      <!-- Water level line -->
+      <path d="M25 455 Q60 448 90 455 Q120 462 155 455" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-dasharray="6 4"/>
+      
+      <!-- Lower left leaf pair -->
+      <path d="M90 420 Q40 400 25 360" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M90 420 Q50 415 30 385" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.15"/>
+      <ellipse cx="30" cy="370" rx="14" ry="28" transform="rotate(-20 30 370)" fill="currentColor" opacity="0.06"/>
+      
+      <!-- Lower right leaf pair -->
+      <path d="M90 390 Q140 370 155 335" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M90 390 Q130 375 148 350" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.15"/>
+      <ellipse cx="148" cy="342" rx="12" ry="24" transform="rotate(20 148 342)" fill="currentColor" opacity="0.06"/>
+      
+      <!-- Middle left leaf -->
+      <path d="M90 320 Q35 295 20 250" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.28"/>
+      <path d="M90 320 Q45 305 28 265" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.12"/>
+      <ellipse cx="24" cy="258" rx="16" ry="30" transform="rotate(-25 24 258)" fill="currentColor" opacity="0.055"/>
+      <!-- Leaf vein -->
+      <path d="M70 305 Q50 285 30 262" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+      
+      <!-- Middle right leaf -->
+      <path d="M90 270 Q145 245 158 205" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.28"/>
+      <ellipse cx="152" cy="212" rx="14" ry="27" transform="rotate(18 152 212)" fill="currentColor" opacity="0.055"/>
+      
+      <!-- Upper left leaf -->
+      <path d="M90 210 Q45 185 35 145" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.25"/>
+      <ellipse cx="38" cy="152" rx="12" ry="24" transform="rotate(-22 38 152)" fill="currentColor" opacity="0.05"/>
+      
+      <!-- Upper right small leaf -->
+      <path d="M90 160 Q130 145 140 115" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.22"/>
+      <ellipse cx="136" cy="120" rx="10" ry="20" transform="rotate(15 136 120)" fill="currentColor" opacity="0.045"/>
+      
+      <!-- Chili pepper fruit -->
+      <path d="M90 130 Q82 120 78 100 Q75 85 80 75" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.35"/>
+      <path d="M90 130 Q86 118 84 100 Q82 88 85 80" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.15"/>
+      <ellipse cx="79" cy="95" rx="5" ry="18" transform="rotate(-8 79 95)" fill="currentColor" opacity="0.08"/>
+      
+      <!-- Top bud -->
+      <circle cx="90" cy="80" r="4" fill="currentColor" opacity="0.15"/>
+      <path d="M86 80 Q90 65 94 80" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2"/>
+      
+      <!-- Node dots along stem -->
+      <circle cx="90" cy="420" r="3" fill="currentColor" opacity="0.2"/>
+      <circle cx="90" cy="320" r="3" fill="currentColor" opacity="0.2"/>
+      <circle cx="90" cy="210" r="3" fill="currentColor" opacity="0.2"/>
+      <circle cx="90" cy="160" r="2.5" fill="currentColor" opacity="0.18"/>
+      <circle cx="90" cy="130" r="2.5" fill="currentColor" opacity="0.18"/>
+      
+      <!-- Water droplets -->
+      <path d="M55 470 Q53 465 55 460 Q57 465 55 470Z" fill="currentColor" opacity="0.18"/>
+      <path d="M125 475 Q123 470 125 465 Q127 470 125 475Z" fill="currentColor" opacity="0.15"/>
+      <path d="M40 485 Q38 480 40 476 Q42 480 40 485Z" fill="currentColor" opacity="0.12"/>
+    </svg>
+  </div>
+
+  <!-- Right decorative art — hydroponic pipe system & sensors -->
+  <div class="hero-deco hero-deco-right" aria-hidden="true">
+    <svg width="180" height="520" viewBox="0 0 180 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main vertical pipe -->
+      <rect x="84" y="70" width="12" height="440" rx="6" fill="currentColor" opacity="0.06"/>
+      <path d="M90 510 L90 70" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+      
+      <!-- Horizontal pipe branch 1 (bottom) -->
+      <path d="M90 430 L45 430 L45 400" stroke="currentColor" stroke-width="1.5" opacity="0.28"/>
+      <path d="M45 400 L45 380" stroke="currentColor" stroke-width="1.5" opacity="0.22"/>
+      <!-- Sensor node -->
+      <rect x="35" y="370" width="20" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.25"/>
+      <line x1="41" y1="374" x2="49" y2="374" stroke="currentColor" stroke-width="0.8" opacity="0.2"/>
+      <line x1="41" y1="378" x2="47" y2="378" stroke="currentColor" stroke-width="0.8" opacity="0.15"/>
+      <!-- Flow indicator -->
+      <path d="M65 425 L55 430 L65 435" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2"/>
+      
+      <!-- Horizontal pipe branch 2 -->
+      <path d="M90 340 L140 340 L140 310" stroke="currentColor" stroke-width="1.5" opacity="0.28"/>
+      <!-- Sensor housing -->
+      <circle cx="140" cy="298" r="10" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.25"/>
+      <circle cx="140" cy="298" r="4" fill="currentColor" opacity="0.1"/>
+      <!-- Signal waves -->
+      <path d="M153 292 Q160 298 153 304" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.15"/>
+      <path d="M158 288 Q168 298 158 308" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
+      
+      <!-- Horizontal pipe branch 3 -->
+      <path d="M90 250 L35 250 L35 225" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
+      <!-- pH/EC probe -->
+      <rect x="28" y="208" width="14" height="20" rx="7" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.22"/>
+      <line x1="35" y1="208" x2="35" y2="198" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+      <circle cx="35" cy="195" r="3" fill="currentColor" opacity="0.12"/>
+      
+      <!-- Horizontal pipe branch 4 -->
+      <path d="M90 175 L145 175 L145 150" stroke="currentColor" stroke-width="1.5" opacity="0.22"/>
+      <!-- Valve -->
+      <path d="M135 145 L145 135 L155 145" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.22"/>
+      <line x1="145" y1="150" x2="145" y2="135" stroke="currentColor" stroke-width="1.2" opacity="0.2"/>
+      
+      <!-- Top — WiFi/IoT cloud indicator -->
+      <path d="M75 95 Q90 75 105 95" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.2"/>
+      <path d="M68 105 Q90 80 112 105" stroke="currentColor" stroke-width="1" fill="none" opacity="0.15"/>
+      <circle cx="90" cy="110" r="3" fill="currentColor" opacity="0.18"/>
+      <!-- Data dots rising -->
+      <circle cx="90" cy="125" r="1.5" fill="currentColor" opacity="0.12"/>
+      <circle cx="90" cy="118" r="1.5" fill="currentColor" opacity="0.15"/>
+      
+      <!-- Junction dots -->
+      <circle cx="90" cy="430" r="3.5" fill="currentColor" opacity="0.22"/>
+      <circle cx="90" cy="340" r="3.5" fill="currentColor" opacity="0.22"/>
+      <circle cx="90" cy="250" r="3.5" fill="currentColor" opacity="0.2"/>
+      <circle cx="90" cy="175" r="3" fill="currentColor" opacity="0.18"/>
+      
+      <!-- Water flow dots (animated feel) -->
+      <circle cx="60" cy="430" r="2" fill="currentColor" opacity="0.15"/>
+      <circle cx="50" cy="430" r="1.5" fill="currentColor" opacity="0.1"/>
+      <circle cx="120" cy="340" r="2" fill="currentColor" opacity="0.15"/>
+      <circle cx="130" cy="340" r="1.5" fill="currentColor" opacity="0.1"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Research Project 25-26J-035</div>
+    <h1>Energy-Efficient Dual Hydroponic System for <span class="highlight">Organic/Inorganic Capsicum Chili</span> Farming</h1>
+    <p class="hero-subtitle">An intelligent IoT-powered dual NFT hydroponic platform combining automated Inorganic & organic nutrient management, predictive micro-climate control, and resilient off-grid communication for sustainable Capsicum Chili cultivation.</p>
+    <div class="hero-actions">
+      <a href="#domain" class="btn btn-primary">Explore Research ↓</a>
+      <a href="#about" class="btn btn-outline">Meet the Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABSTRACT ==================== -->
+<section class="section" id="abstract">
+  <div class="section-inner fade-up">
+    <div class="section-label"><span class="bar"></span> Abstract</div>
+    <h2 class="section-title">Project Overview</h2>
+    <div class="abstract-card">
+      <h3>📄 Abstract</h3>
+      <p>Hydroponic farming offers a sustainable solution to traditional agricultural challenges, but off-grid deployments and Inorganic / organic nutrient management present significant hurdles. This research proposes an intelligent, energy-efficient dual hydroponic system specifically optimized for Capsicum Chili  farming. The project pioneers a hybrid approach by integrating both an Automated Organic Nutrient Film Technique (NFT) system featuring real-time compost classification using gas and color sensors and a Semi-Automated Inorganic NFT system. To ensure optimal plant health and resource efficiency, the system features an automated micro-climate zone that dynamically adapts to external weather conditions and predicts fungal risks using Vapor Pressure Deficit (VPD) and dew point analysis. Furthermore, the entire architecture is supported by a low-power, resilient communication failover system (Wi-Fi/GSM) designed specifically for off-grid agricultural environments. By utilizing edge computing on ESP32 microcontrollers and  Logic control algorithms, this system eliminates manual dosing errors, reduces energy consumption, and provides farmers with a reliable, real-time cloud dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SYSTEM SHOWCASE ==================== -->
+<section class="section section-alt" id="system">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Our System</div>
+      <h2 class="section-title">The Dual Hydroponic System</h2>
+      <p class="section-desc">Our fully assembled energy-efficient NFT hydroponic platform featuring integrated climate control, automated nutrient dosing, and IoT-based monitoring.</p>
+    </div>
+    <div class="showcase-container fade-up">
+      <div class="showcase-image">
+        <img src="images/system-product.png" alt="Dual Hydroponic System — Final Product">
+        <div class="showcase-glow"></div>
+      </div>
+      <div class="showcase-details">
+        <div class="showcase-stat">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Research Components</span>
+        </div>
+        <div class="showcase-stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Integrated Sensors</span>
+        </div>
+        <div class="showcase-stat">
+          <span class="stat-number">2</span>
+          <span class="stat-label">NFT Systems</span>
+        </div>
+        <div class="showcase-stat">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Cloud Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DOMAIN ==================== -->
+<section class="section" id="domain">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Domain</div>
+      <h2 class="section-title">Research Domain & Methodology</h2>
+      <p class="section-desc">A deep dive into the literature, identified gaps, and our proposed approach to solving off-grid hydroponic challenges.</p>
+    </div>
+    <div class="domain-grid">
+      <!-- Literature Survey -->
+      <div class="domain-card fade-up">
+        <div class="card-icon">📚</div>
+        <h3>Literature Survey</h3>
+        <p>Recent literature emphasizes the transition toward controlled environment agriculture (CEA) and the efficiency of the Nutrient Film Technique (NFT). While standard inorganic hydroponics are well-documented, organic hydroponics remains challenging due to unpredictable nutrient release from organic compost. Existing IoT systems provide basic monitoring but lack advanced integration. Studies show off-grid greenhouses suffer from unreliable internet and high energy consumption. Current research lacks a unified system combining resilient communication, precise fungal disease prediction, and simultaneous management of organic/inorganic nutrient loops.</p>
+      </div>
+      <!-- Research Gap -->
+      <div class="domain-card fade-up">
+        <div class="card-icon">🔍</div>
+        <h3>Research Gap</h3>
+        <p>There is a distinct lack of hybrid hydroponic systems managing organic and inorganic environments concurrently. Existing systems fail to provide localized, predictive fungal risk assessments and lack real-time compost readiness classification for organic dosing. Furthermore, most IoT architectures assume stable internet and grid power, leaving a gap for low-power, resilient communication frameworks for remote farming.</p>
+      </div>
+      <!-- Research Problem -->
+      <div class="domain-card fade-up">
+        <div class="card-icon">⚠️</div>
+        <h3>Research Problem</h3>
+        <p>Maintaining the precise environmental and nutritional balance for Capsicum Chili is complex. In off-grid environments, farmers face three major problems:</p>
+        <ul>
+          <li>High energy costs and unreliable data transmission.</li>
+          <li>Inability to safely automate organic nutrient solutions due to compost fluctuations.</li>
+          <li>Sudden micro-climate changes causing devastating fungal infections.</li>
+        </ul>
+      </div>
+      <!-- Research Objectives -->
+      <div class="domain-card domain-full fade-up">
+        <div class="card-icon">🎯</div>
+        <h3>Research Objectives</h3>
+        <div class="objectives-grid">
+          <div class="objective-card">
+            <div class="obj-number">01</div>
+            <h4>Organic NFT System</h4>
+            <p>Develop an Automated Organic NFT Hydroponic System featuring real-time compost classification (gas/color data).</p>
+          </div>
+          <div class="objective-card">
+            <div class="obj-number">02</div>
+            <h4>Inorganic NFT System</h4>
+            <p>Design a Semi-Automated Inorganic NFT Hydroponic System with closed-loop dosing algorithms.</p>
+          </div>
+          <div class="objective-card">
+            <div class="obj-number">03</div>
+            <h4>Resilient Communication</h4>
+            <p>Design a low-power, resilient communication system with dual-failover logic (Wi-Fi/GSM).</p>
+          </div>
+          <div class="objective-card">
+            <div class="obj-number">04</div>
+            <h4>Automated Climate Zone</h4>
+            <p>Develop an automated climate zone adapting to external weather and utilizing sensor data to predict/mitigate fungal risks.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Methodology -->
+      <div class="domain-card domain-full fade-up">
+        <div class="card-icon">⚙️</div>
+        <h3>Methodology</h3>
+        <p>The architecture divides into Organic and Inorganic NFT setups controlled by ESP32 microcontrollers. The <strong>Hardware Layer</strong> uses a multi-sensor array (DHT11, DS18B20, pH/EC, Gas/Color) and actuators (peristaltic pumps, fans, mists). The <strong>Control Layer</strong> uses edge-level Fuzzy Logic algorithms and VPD calculations. The <strong>Communication Layer</strong> uses an NTP-synchronized failover mechanism between Wi-Fi and GSM. The <strong>Cloud Layer</strong> uses Firebase Realtime Database and a web dashboard.</p>
+      </div>
+      <!-- Technologies -->
+      <div class="domain-card domain-full fade-up">
+        <div class="card-icon">🔧</div>
+        <h3>Technologies Used</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">ESP32</span>
+          <span class="tech-tag">DHT11</span>
+          <span class="tech-tag">DS18B20</span>
+          <span class="tech-tag">pH/EC Sensors</span>
+          <span class="tech-tag">Gas & Color Sensors</span>
+          <span class="tech-tag">Peristaltic Pumps</span>
+          <span class="tech-tag">GSM/Wi-Fi</span>
+          <span class="tech-tag">C/C++ (Arduino)</span>
+          <span class="tech-tag">Fuzzy Logic</span>
+          <span class="tech-tag">VPD Modeling</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">NFT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MILESTONES ==================== -->
+<section class="section" id="milestones">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Milestones</div>
+      <h2 class="section-title">Project Timeline</h2>
+      <p class="section-desc">Key milestones and deliverables throughout our research journey.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">August 2025</div>
+          <h3>Project Proposal</h3>
+          <p>Initial presentation defining problem, scope, architecture.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">November 2025</div>
+          <h3>Progress Presentation 1 (PP1)</h3>
+          <p>50% completion. Hardware assembly, sensor integration, Design Documents.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">March 2026</div>
+          <h3>Progress Presentation 2 (PP2)</h3>
+          <p>90% completion. Cloud integration, Fuzzy logic, communication failover, full automation testing.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">May 2026</div>
+          <h3>Final Assessment</h3>
+          <p>Complete system deployment, research paper dossier, final performance validation.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">June 2026</div>
+          <h3>Viva</h3>
+          <p>Oral defense of individual components and final outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DOCUMENTS ==================== -->
+<section class="section section-alt" id="documents">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Documents</div>
+      <h2 class="section-title">Research Documents</h2>
+      <p class="section-desc">All project documentation and deliverables. Click any document to view.</p>
+    </div>
+
+    <!-- Project Charter -->
+    <div class="doc-group fade-up">
+      <h3 class="doc-group-title">📋 Project Charter</h3>
+      <div class="docs-grid">
+        <a href="Documents/Project Charter.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon pdf">📋</div>
+          <div>
+            <h4>Project Charter</h4>
+            <p>Group Document</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Proposal Documents -->
+    <div class="doc-group fade-up">
+      <h3 class="doc-group-title">📄 Proposal Documents</h3>
+      <div class="docs-grid">
+        <a href="Documents/IT22355782.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon pdf">📄</div>
+          <div>
+            <h4>Low-Power Communication</h4>
+            <p>Galappaththi D.S — IT22355782</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22258762.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon pdf">📄</div>
+          <div>
+            <h4>Semi-Automated Inorganic NFT</h4>
+            <p>P.A.S.S. Weerasekara — IT22258762</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22167682.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon pdf">📄</div>
+          <div>
+            <h4>Automated Organic NFT</h4>
+            <p>D.M.I.P Dissanayaka — IT22167682</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22617996.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon pdf">📄</div>
+          <div>
+            <h4>Automated Climate Zone</h4>
+            <p>Kariyawasam K.S.T.S.A — IT22617996</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Checklist Documents -->
+    <div class="doc-group fade-up">
+      <h3 class="doc-group-title">✅ Checklist Documents</h3>
+      <div class="docs-grid">
+        <a href="Documents/IT22355782 - Checklist 1 - By PP1 Presentation - DD.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon checklist">✅</div>
+          <div>
+            <h4>Checklist — Low-Power Comm.</h4>
+            <p>Galappaththi D.S — IT22355782</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22258762 - Checklist 1 - By PP1 Presentation - DD.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon checklist">✅</div>
+          <div>
+            <h4>Checklist — Inorganic NFT</h4>
+            <p>P.A.S.S. Weerasekara — IT22258762</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22167682- Checklist 1 - By PP1 Presentation - DD.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon checklist">✅</div>
+          <div>
+            <h4>Checklist — Organic NFT</h4>
+            <p>D.M.I.P Dissanayaka — IT22167682</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+        <a href="Documents/IT22617996-Checklist 1 -By PP1 Presentation - DD.pdf" target="_blank" class="doc-card">
+          <div class="doc-icon checklist">✅</div>
+          <div>
+            <h4>Checklist — Automated Climate</h4>
+            <p>Kariyawasam K.S.T.S.A — IT22617996</p>
+          </div>
+          <span class="doc-badge">PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Final Document -->
+    <div class="doc-group fade-up">
+      <h3 class="doc-group-title">📑 Final Document</h3>
+      <div class="docs-grid">
+        <a class="doc-card doc-card-soon">
+          <div class="doc-icon soon">🔒</div>
+          <div>
+            <h4>Research Paper Dossier</h4>
+            <p>Coming Soon</p>
+          </div>
+          <span class="doc-badge soon-badge">Pending</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== PRESENTATIONS ==================== -->
+<section class="section" id="presentations">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Presentations</div>
+      <h2 class="section-title">Presentation Slides</h2>
+      <p class="section-desc">Slide decks from all key project presentations.</p>
+    </div>
+    <div class="docs-grid fade-up">
+      <a href="Presantations/Project Propasal.pptx" target="_blank" class="doc-card">
+        <div class="doc-icon ppt">📊</div>
+        <div><h4>Proposal Slides</h4><p>Group Presentation</p></div>
+        <span class="doc-badge ppt-badge">PPTX</span>
+      </a>
+      <a href="Presantations/PP1.pptx" target="_blank" class="doc-card">
+        <div class="doc-icon ppt">📊</div>
+        <div><h4>PP1 Slides</h4><p>Progress Presentation 1</p></div>
+        <span class="doc-badge ppt-badge">PPTX</span>
+      </a>
+      <a href="Presantations/PP2.pptx" target="_blank" class="doc-card">
+        <div class="doc-icon ppt">📊</div>
+        <div><h4>PP2 Slides</h4><p>Progress Presentation 2</p></div>
+        <span class="doc-badge ppt-badge">PPTX</span>
+      </a>
+      <a href="Presantations/Finale Presantation.pptx" target="_blank" class="doc-card">
+        <div class="doc-icon ppt">📊</div>
+        <div><h4>Final Presentation</h4><p>Final Defense Slides</p></div>
+        <span class="doc-badge ppt-badge">PPTX</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT US ==================== -->
+<section class="section section-alt" id="about">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> About Us</div>
+      <h2 class="section-title">Meet the Team</h2>
+      <p class="section-desc">The researchers and supervisors behind this project from SLIIT's Department of Computer Systems Engineering.</p>
+    </div>
+    <div class="team-grid fade-up">
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/member-galappaththi.jpg" alt="Galappaththi D.S"></div>
+        <h3>Galappaththi D.S</h3>
+        <div class="student-id">IT22355782</div>
+        <p>Low-Power, Resilient Communication System for Hydroponic Monitoring</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/member-weerasekara.jpg" alt="P.A.S.S. Weerasekara"></div>
+        <h3>P.A.S.S. Weerasekara</h3>
+        <div class="student-id">IT22258762</div>
+        <p>Semi-Automated Inorganic NFT Hydroponic System</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/member-dissanayaka.jpg" alt="D.M.I.P Dissanayaka"></div>
+        <h3>D.M.I.P Dissanayaka</h3>
+        <div class="student-id">IT22167682</div>
+        <p>Automated Organic NFT Hydroponic System & Compost Classification</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/member-kariyawasam.jpg" alt="Kariyawasam K.S.T.S.A"></div>
+        <h3>Kariyawasam K.S.T.S.A</h3>
+        <div class="student-id">IT22617996</div>
+        <p>Automated climate zone that adapts to weather and predicts fungal risks</p>
+      </div>
+    </div>
+    <div class="supervisor-grid fade-up">
+      <div class="supervisor-card">
+        <div class="supervisor-avatar"><img src="images/supervisor.jpg" alt="Ms. Shashika Lokuliyana"></div>
+        <div>
+          <h3>Ms. Shashika Lokuliyana</h3>
+          <p>Supervisor</p>
+        </div>
+      </div>
+      <div class="supervisor-card">
+        <div class="supervisor-avatar"><img src="images/co-supervisor.jpg" alt="Mr. Dinith Primal"></div>
+        <div>
+          <h3>Mr. Dinith Primal</h3>
+          <p>Co-Supervisor</p>
+        </div>
+      </div>
+      <div class="supervisor-card">
+        <div class="supervisor-avatar logo-avatar"><img src="images/sliit-logo.jpg" alt="SLIIT"></div>
+        <div>
+          <h3>SLIIT</h3>
+          <p>Department of Computer Systems Engineering</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label"><span class="bar"></span> Contact</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-desc">Have questions about our research? Reach out to us.</p>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>SLIIT Malabe Campus, New Kandy Rd, Malabe, Sri Lanka</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🏫</div>
+          <div>
+            <h4>Institution</h4>
+            <p>Sri Lanka Institute of Information Technology</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🔬</div>
+          <div>
+            <h4>Department</h4>
+            <p>Computer Systems Engineering</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🆔</div>
+          <div>
+            <h4>Project ID</h4>
+            <p>25-26J-035</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Doe" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Research Inquiry" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="images/logo.png" alt="CeylonHydro" width="28" height="28"> CeylonHydro</div>
+    <p>Energy-Efficient Dual Hydroponic System for Organic/Inorganic Capsicum Chili Farming</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#domain">Domain</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#documents">Documents</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p>© 2026 Sri Lanka Institute of Information Technology (SLIIT). All Rights Reserved.</p>
+    <p style="margin-top:4px;">Project ID: 25-26J-035 | Department of Computer Systems Engineering</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
